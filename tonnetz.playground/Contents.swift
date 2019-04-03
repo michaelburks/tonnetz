@@ -37,8 +37,6 @@ class TonnetzScene: SCNScene {
 
   override init() {
     super.init()
-    //rootNode.addChildNode(self.lightNode)
-
     for node in TonnetzScene.torusMIDINodes() {
       rootNode.addChildNode(node)
     }
@@ -161,5 +159,24 @@ sceneView.scene = scene
 sceneView.allowsCameraControl = true
 
 PlaygroundSupport.PlaygroundPage.current.liveView = sceneView
+
+import AVFoundation
+let midiURL = Bundle.main.url(forResource: "pathetique_2", withExtension: "mid")!
+print(midiURL)
+
+let bankURL = Bundle.main.url(forResource: "grandpiano", withExtension: "sf2")!
+print(bankURL)
+
+
+var player: AVMIDIPlayer? = nil
+do {
+  player = try AVMIDIPlayer(contentsOf: midiURL, soundBankURL: bankURL )
+  if let p = player {
+    p.prepareToPlay()
+    p.play(nil)
+  }
+} catch {
+  print(error)
+}
 
 

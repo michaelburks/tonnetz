@@ -1,0 +1,639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C05185722501F5F002F4776 /* TonnetzScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185622501F5F002F4776 /* TonnetzScene.swift */; };
+		4C05185B225145EA002F4776 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185A225145EA002F4776 /* AudioPlayer.swift */; };
+		4C05185D2252C037002F4776 /* AppMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185C2252C037002F4776 /* AppMaster.swift */; };
+		4C05185F2252FBD0002F4776 /* MIDIVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */; };
+		4C0518612252FCAC002F4776 /* MIDIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518602252FCAC002F4776 /* MIDIUtil.swift */; };
+		4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518622253E821002F4776 /* ConvenienceExtensions.swift */; };
+		4C051865225444C6002F4776 /* MusicTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C051864225444C6002F4776 /* MusicTheory.swift */; };
+		4C911E942250198700EA54AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E932250198700EA54AF /* AppDelegate.swift */; };
+		4C911E962250198700EA54AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E952250198700EA54AF /* ViewController.swift */; };
+		4C911E982250198700EA54AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E972250198700EA54AF /* Assets.xcassets */; };
+		4C911E9B2250198700EA54AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E992250198700EA54AF /* Main.storyboard */; };
+		4C911EA72250198700EA54AF /* TonnetzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911EA62250198700EA54AF /* TonnetzTests.swift */; };
+		4C911EB22250198700EA54AF /* TonnetzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911EB12250198700EA54AF /* TonnetzUITests.swift */; };
+		4C911EC7225019AD00EA54AF /* pathetique_2.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC1225019AD00EA54AF /* pathetique_2.mid */; };
+		4C911EC8225019AD00EA54AF /* grandpiano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC2225019AD00EA54AF /* grandpiano.sf2 */; };
+		4C911ECA225019AD00EA54AF /* scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC4225019AD00EA54AF /* scene.scn */; };
+		4C911ECB225019AD00EA54AF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC5225019AD00EA54AF /* Actions.sks */; };
+		4C911ECD22501A0000EA54AF /* SceneKitAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C911EA32250198700EA54AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C911E882250198700EA54AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C911E8F2250198700EA54AF;
+			remoteInfo = Tonnetz;
+		};
+		4C911EAE2250198700EA54AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C911E882250198700EA54AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C911E8F2250198700EA54AF;
+			remoteInfo = Tonnetz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C05185622501F5F002F4776 /* TonnetzScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonnetzScene.swift; sourceTree = "<group>"; };
+		4C05185A225145EA002F4776 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		4C05185C2252C037002F4776 /* AppMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMaster.swift; sourceTree = "<group>"; };
+		4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIVisualizer.swift; sourceTree = "<group>"; };
+		4C0518602252FCAC002F4776 /* MIDIUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIUtil.swift; sourceTree = "<group>"; };
+		4C0518622253E821002F4776 /* ConvenienceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenienceExtensions.swift; sourceTree = "<group>"; };
+		4C051864225444C6002F4776 /* MusicTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTheory.swift; sourceTree = "<group>"; };
+		4C911E902250198700EA54AF /* Tonnetz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonnetz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C911E932250198700EA54AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C911E952250198700EA54AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C911E972250198700EA54AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C911E9A2250198700EA54AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C911E9C2250198700EA54AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C911E9D2250198700EA54AF /* Tonnetz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tonnetz.entitlements; sourceTree = "<group>"; };
+		4C911EA22250198700EA54AF /* TonnetzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TonnetzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C911EA62250198700EA54AF /* TonnetzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonnetzTests.swift; sourceTree = "<group>"; };
+		4C911EA82250198700EA54AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C911EAD2250198700EA54AF /* TonnetzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TonnetzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C911EB12250198700EA54AF /* TonnetzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonnetzUITests.swift; sourceTree = "<group>"; };
+		4C911EB32250198700EA54AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C911EC1225019AD00EA54AF /* pathetique_2.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = pathetique_2.mid; sourceTree = "<group>"; };
+		4C911EC2225019AD00EA54AF /* grandpiano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grandpiano.sf2; sourceTree = "<group>"; };
+		4C911EC4225019AD00EA54AF /* scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = scene.scn; sourceTree = "<group>"; };
+		4C911EC5225019AD00EA54AF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitAdditions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C911E8D2250198700EA54AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911E9F2250198700EA54AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911EAA2250198700EA54AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C911E872250198700EA54AF = {
+			isa = PBXGroup;
+			children = (
+				4C911E922250198700EA54AF /* Tonnetz */,
+				4C911EA52250198700EA54AF /* TonnetzTests */,
+				4C911EB02250198700EA54AF /* TonnetzUITests */,
+				4C911E912250198700EA54AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C911E912250198700EA54AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C911E902250198700EA54AF /* Tonnetz.app */,
+				4C911EA22250198700EA54AF /* TonnetzTests.xctest */,
+				4C911EAD2250198700EA54AF /* TonnetzUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C911E922250198700EA54AF /* Tonnetz */ = {
+			isa = PBXGroup;
+			children = (
+				4C051864225444C6002F4776 /* MusicTheory.swift */,
+				4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */,
+				4C0518602252FCAC002F4776 /* MIDIUtil.swift */,
+				4C0518622253E821002F4776 /* ConvenienceExtensions.swift */,
+				4C05185A225145EA002F4776 /* AudioPlayer.swift */,
+				4C911E932250198700EA54AF /* AppDelegate.swift */,
+				4C05185C2252C037002F4776 /* AppMaster.swift */,
+				4C911E952250198700EA54AF /* ViewController.swift */,
+				4C05185622501F5F002F4776 /* TonnetzScene.swift */,
+				4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */,
+				4C911E972250198700EA54AF /* Assets.xcassets */,
+				4C911E992250198700EA54AF /* Main.storyboard */,
+				4C911E9C2250198700EA54AF /* Info.plist */,
+				4C911E9D2250198700EA54AF /* Tonnetz.entitlements */,
+				4C911EBF225019AD00EA54AF /* Resources */,
+			);
+			path = Tonnetz;
+			sourceTree = "<group>";
+		};
+		4C911EA52250198700EA54AF /* TonnetzTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C911EA62250198700EA54AF /* TonnetzTests.swift */,
+				4C911EA82250198700EA54AF /* Info.plist */,
+			);
+			path = TonnetzTests;
+			sourceTree = "<group>";
+		};
+		4C911EB02250198700EA54AF /* TonnetzUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4C911EB12250198700EA54AF /* TonnetzUITests.swift */,
+				4C911EB32250198700EA54AF /* Info.plist */,
+			);
+			path = TonnetzUITests;
+			sourceTree = "<group>";
+		};
+		4C911EBF225019AD00EA54AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C911EC1225019AD00EA54AF /* pathetique_2.mid */,
+				4C911EC2225019AD00EA54AF /* grandpiano.sf2 */,
+				4C911EC4225019AD00EA54AF /* scene.scn */,
+				4C911EC5225019AD00EA54AF /* Actions.sks */,
+			);
+			name = Resources;
+			path = ../../tonnetz.playground/Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C911E8F2250198700EA54AF /* Tonnetz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C911EB62250198700EA54AF /* Build configuration list for PBXNativeTarget "Tonnetz" */;
+			buildPhases = (
+				4C911E8C2250198700EA54AF /* Sources */,
+				4C911E8D2250198700EA54AF /* Frameworks */,
+				4C911E8E2250198700EA54AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tonnetz;
+			productName = Tonnetz;
+			productReference = 4C911E902250198700EA54AF /* Tonnetz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4C911EA12250198700EA54AF /* TonnetzTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C911EB92250198700EA54AF /* Build configuration list for PBXNativeTarget "TonnetzTests" */;
+			buildPhases = (
+				4C911E9E2250198700EA54AF /* Sources */,
+				4C911E9F2250198700EA54AF /* Frameworks */,
+				4C911EA02250198700EA54AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C911EA42250198700EA54AF /* PBXTargetDependency */,
+			);
+			name = TonnetzTests;
+			productName = TonnetzTests;
+			productReference = 4C911EA22250198700EA54AF /* TonnetzTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4C911EAC2250198700EA54AF /* TonnetzUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C911EBC2250198700EA54AF /* Build configuration list for PBXNativeTarget "TonnetzUITests" */;
+			buildPhases = (
+				4C911EA92250198700EA54AF /* Sources */,
+				4C911EAA2250198700EA54AF /* Frameworks */,
+				4C911EAB2250198700EA54AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C911EAF2250198700EA54AF /* PBXTargetDependency */,
+			);
+			name = TonnetzUITests;
+			productName = TonnetzUITests;
+			productReference = 4C911EAD2250198700EA54AF /* TonnetzUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C911E882250198700EA54AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Michael Burks";
+				TargetAttributes = {
+					4C911E8F2250198700EA54AF = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					4C911EA12250198700EA54AF = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4C911E8F2250198700EA54AF;
+					};
+					4C911EAC2250198700EA54AF = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4C911E8F2250198700EA54AF;
+					};
+				};
+			};
+			buildConfigurationList = 4C911E8B2250198700EA54AF /* Build configuration list for PBXProject "Tonnetz" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C911E872250198700EA54AF;
+			productRefGroup = 4C911E912250198700EA54AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C911E8F2250198700EA54AF /* Tonnetz */,
+				4C911EA12250198700EA54AF /* TonnetzTests */,
+				4C911EAC2250198700EA54AF /* TonnetzUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C911E8E2250198700EA54AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C911EC8225019AD00EA54AF /* grandpiano.sf2 in Resources */,
+				4C911ECB225019AD00EA54AF /* Actions.sks in Resources */,
+				4C911E982250198700EA54AF /* Assets.xcassets in Resources */,
+				4C911ECA225019AD00EA54AF /* scene.scn in Resources */,
+				4C911E9B2250198700EA54AF /* Main.storyboard in Resources */,
+				4C911EC7225019AD00EA54AF /* pathetique_2.mid in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911EA02250198700EA54AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911EAB2250198700EA54AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C911E8C2250198700EA54AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C911ECD22501A0000EA54AF /* SceneKitAdditions.swift in Sources */,
+				4C05185D2252C037002F4776 /* AppMaster.swift in Sources */,
+				4C0518612252FCAC002F4776 /* MIDIUtil.swift in Sources */,
+				4C05185722501F5F002F4776 /* TonnetzScene.swift in Sources */,
+				4C05185B225145EA002F4776 /* AudioPlayer.swift in Sources */,
+				4C05185F2252FBD0002F4776 /* MIDIVisualizer.swift in Sources */,
+				4C051865225444C6002F4776 /* MusicTheory.swift in Sources */,
+				4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */,
+				4C911E962250198700EA54AF /* ViewController.swift in Sources */,
+				4C911E942250198700EA54AF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911E9E2250198700EA54AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C911EA72250198700EA54AF /* TonnetzTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C911EA92250198700EA54AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C911EB22250198700EA54AF /* TonnetzUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C911EA42250198700EA54AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C911E8F2250198700EA54AF /* Tonnetz */;
+			targetProxy = 4C911EA32250198700EA54AF /* PBXContainerItemProxy */;
+		};
+		4C911EAF2250198700EA54AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C911E8F2250198700EA54AF /* Tonnetz */;
+			targetProxy = 4C911EAE2250198700EA54AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4C911E992250198700EA54AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C911E9A2250198700EA54AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C911EB42250198700EA54AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4C911EB52250198700EA54AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4C911EB72250198700EA54AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tonnetz/Tonnetz.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = Tonnetz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.Tonnetz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		4C911EB82250198700EA54AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tonnetz/Tonnetz.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = Tonnetz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.Tonnetz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		4C911EBA2250198700EA54AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = TonnetzTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.TonnetzTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tonnetz.app/Contents/MacOS/Tonnetz";
+			};
+			name = Debug;
+		};
+		4C911EBB2250198700EA54AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = TonnetzTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.TonnetzTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tonnetz.app/Contents/MacOS/Tonnetz";
+			};
+			name = Release;
+		};
+		4C911EBD2250198700EA54AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = TonnetzUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.TonnetzUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Tonnetz;
+			};
+			name = Debug;
+		};
+		4C911EBE2250198700EA54AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FP5LSTJR36;
+				INFOPLIST_FILE = TonnetzUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michaelburks.TonnetzUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = Tonnetz;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C911E8B2250198700EA54AF /* Build configuration list for PBXProject "Tonnetz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C911EB42250198700EA54AF /* Debug */,
+				4C911EB52250198700EA54AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C911EB62250198700EA54AF /* Build configuration list for PBXNativeTarget "Tonnetz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C911EB72250198700EA54AF /* Debug */,
+				4C911EB82250198700EA54AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C911EB92250198700EA54AF /* Build configuration list for PBXNativeTarget "TonnetzTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C911EBA2250198700EA54AF /* Debug */,
+				4C911EBB2250198700EA54AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C911EBC2250198700EA54AF /* Build configuration list for PBXNativeTarget "TonnetzUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C911EBD2250198700EA54AF /* Debug */,
+				4C911EBE2250198700EA54AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C911E882250198700EA54AF /* Project object */;
+}
