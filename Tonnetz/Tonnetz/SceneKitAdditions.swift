@@ -6,7 +6,6 @@
 //  Copyright © 2019 Michael Burks. All rights reserved.
 //
 
-import SpriteKit
 import SceneKit
 
 extension SCNVector4 {

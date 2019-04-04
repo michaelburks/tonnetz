@@ -20,9 +20,6 @@ class ViewController: NSViewController {
     let scnView = SCNView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
     scnView.backgroundColor = .black
 
-//    scene = TonnetzScene()
-//    sceneView.scene = scene
-//    scnView.allowsCameraControl = true
     self.view = scnView
   }
 

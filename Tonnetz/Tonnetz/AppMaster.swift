@@ -44,12 +44,13 @@ class AppMaster {
     player = AudioPlayer(midiURL: LocalMIDI.pathetiqueURL)
     player?.MIDIdelegate = midiRouter
 
-    scene = TonnetzScene()
+    let lattice = Lattice(width: 12, height: 12)
+    let torus = Torus()
+//    scene = TonnetzScene(tonnetz: lattice)
+    scene = TonnetzScene(tonnetz: torus)
 
     self.player?.play()
-
   }
-
 }
 
 class MIDIRouter: LiveMIDIHandlerDelegate {

@@ -6,10 +6,11 @@
 //  Copyright © 2019 Michael Burks. All rights reserved.
 //
 
+import SceneKit
+
 protocol MIDIVisualizer: LiveMIDIHandlerDelegate {
   var bank: MIDIBank {get}
-  func MIDIItem(note: MIDINote) -> MIDINoteItem?
-  func update()
+  func MIDIItem(note: MIDINote) -> MIDISceneNode?
 }
 
 extension MIDIVisualizer {
@@ -25,11 +26,6 @@ extension MIDIVisualizer {
     bank[note] = ev
     MIDIItem(note: note)?.update(note: note, event: ev, velocity: velocity, count: bank.count(note: note))
   }
-}
-
-protocol MIDINoteItem {
-  func update(note: MIDINote, event: MIDIEvent, velocity: UInt8, count: Int)
-  var on: Bool { get set }
 }
 
 class MIDIBank {

@@ -48,35 +48,35 @@ class AudioPlayer {
     liveHandler = LiveMIDIHandler(audio.samplerUnit)
     midiHandlers = AudioPlayer.makeNoteHandlers(liveHandlerRef: &liveHandler)
 
-    MusicSequenceSetAUGraph(sequence, audio.graph).printIfError()
+    MusicSequenceSetAUGraph(sequence, audio.graph).checkError()
 
-    MusicSequenceSetMIDIEndpoint(sequence, midiHandlers.endpointRef).printIfError()
+    MusicSequenceSetMIDIEndpoint(sequence, midiHandlers.endpointRef).checkError()
 
-    MusicPlayerSetSequence(player, sequence).printIfError()
+    MusicPlayerSetSequence(player, sequence).checkError()
 
-    MusicPlayerSetPlayRateScalar(player, 2.0).printIfError()
-    MusicPlayerPreroll(player).printIfError()
+    MusicPlayerSetPlayRateScalar(player, 2.0).checkError()
+    MusicPlayerPreroll(player).checkError()
   }
 
   deinit {
-    MusicPlayerStop(player).printIfError()
-    DisposeMusicPlayer(player).printIfError()
-    DisposeAUGraph(audio.graph).printIfError()
-    DisposeMusicSequence(sequence).printIfError()
+    MusicPlayerStop(player).checkError()
+    DisposeMusicPlayer(player).checkError()
+    DisposeAUGraph(audio.graph).checkError()
+    DisposeMusicSequence(sequence).checkError()
     MIDIClientDispose(midiHandlers.clientRef)
     MIDIEndpointDispose(midiHandlers.endpointRef)
   }
 
   private static func makeSequence(with midiURL: URL) -> MusicSequence {
     var sequence: MusicSequence?
-    NewMusicSequence(&sequence).printIfError()
-    MusicSequenceFileLoad(sequence!, midiURL as CFURL, .midiType, .smf_ChannelsToTracks).printIfError()
+    NewMusicSequence(&sequence).checkError()
+    MusicSequenceFileLoad(sequence!, midiURL as CFURL, .midiType, .smf_ChannelsToTracks).checkError()
     return sequence!
   }
 
   private static func makePlayer() -> MusicPlayer {
     var player: MusicPlayer?
-    NewMusicPlayer(&player).printIfError()
+    NewMusicPlayer(&player).checkError()
     return player!
   }
 
@@ -88,7 +88,7 @@ class AudioPlayer {
     }
 
     var clientRef: MIDIClientRef = 0
-    MIDIClientCreate("myclient" as CFString, notifyProc, nil, &clientRef).printIfError()
+    MIDIClientCreate("myclient" as CFString, notifyProc, nil, &clientRef).checkError()
     print("client: \(clientRef)")
 
     let readProc: MIDIReadProc = { (pktlistref, readProcRefCon, srcConnRefCon) in
@@ -120,7 +120,7 @@ class AudioPlayer {
     }
 
     var endpointRef: MIDIEndpointRef = 0
-    MIDIDestinationCreate(clientRef, "mydestination" as CFString, readProc, liveHandlerRef, &endpointRef).printIfError()
+    MIDIDestinationCreate(clientRef, "mydestination" as CFString, readProc, liveHandlerRef, &endpointRef).checkError()
     print("endpoint: \(endpointRef)")
 
     return MIDIHandlerRefs(clientRef: clientRef, endpointRef: endpointRef)
@@ -129,17 +129,17 @@ class AudioPlayer {
 
 extension AudioPlayer {
   func play() {
-    MusicPlayerStart(player).printIfError()
+    MusicPlayerStart(player).checkError()
   }
 
   func pause() {
-    MusicPlayerStop(player).printIfError()
+    MusicPlayerStop(player).checkError()
   }
 
   var isPlaying: Bool {
     get {
       var b = DarwinBoolean(false)
-      MusicPlayerIsPlaying(player, &b).printIfError()
+      MusicPlayerIsPlaying(player, &b).checkError()
       return b.boolValue
     }
   }
@@ -147,7 +147,7 @@ extension AudioPlayer {
 }
 
 extension OSStatus {
-  func printIfError(_ msg: String = "", function: String = #function, line: Int = #line) {
+  func checkError(_ msg: String = "", function: String = #function, line: Int = #line) {
     if self != OSStatus(noErr) {
       print("Error at line \(line) in \(function): \(self) \(msg)")
     }
@@ -204,7 +204,7 @@ class MIDIAudioGraph {
 
   init() {
     var newGraph: AUGraph?
-    NewAUGraph(&newGraph).printIfError()
+    NewAUGraph(&newGraph).checkError()
     graph = newGraph!
 
     var samplerNode: AUNode = 0
@@ -215,7 +215,7 @@ class MIDIAudioGraph {
       componentFlags: 0,
       componentFlagsMask: 0)
 
-    AUGraphAddNode(graph, &cd, &samplerNode).printIfError()
+    AUGraphAddNode(graph, &cd, &samplerNode).checkError()
 
     var ioNode: AUNode = 0
     var ioUnitDescription:AudioComponentDescription = AudioComponentDescription(
@@ -224,14 +224,14 @@ class MIDIAudioGraph {
       componentManufacturer: OSType(kAudioUnitManufacturer_Apple),
       componentFlags: 0,
       componentFlagsMask: 0)
-    AUGraphAddNode(graph, &ioUnitDescription, &ioNode).printIfError()
+    AUGraphAddNode(graph, &ioUnitDescription, &ioNode).checkError()
 
     var newSamplerUnit: AudioUnit?
     var newIOUnit: AudioUnit?
 
-    AUGraphOpen(graph).printIfError()
-    AUGraphNodeInfo(graph, samplerNode, nil, &newSamplerUnit).printIfError()
-    AUGraphNodeInfo(graph, ioNode, nil, &newIOUnit).printIfError()
+    AUGraphOpen(graph).checkError()
+    AUGraphNodeInfo(graph, samplerNode, nil, &newSamplerUnit).checkError()
+    AUGraphNodeInfo(graph, ioNode, nil, &newIOUnit).checkError()
 
     samplerUnit = newSamplerUnit!
     ioUnit = newIOUnit!
@@ -249,24 +249,24 @@ class MIDIAudioGraph {
         UInt32(kAudioUnitScope_Global),
         0,
         &instdata,
-        UInt32(MemoryLayout<AUSamplerInstrumentData>.size)).printIfError()
+        UInt32(MemoryLayout<AUSamplerInstrumentData>.size)).checkError()
     }
 
     let samplerOutputElement:AudioUnitElement = 0
     let ioUnitOutputElement:AudioUnitElement = 0
 
-    AUGraphConnectNodeInput(graph, samplerNode, samplerOutputElement,  ioNode, ioUnitOutputElement).printIfError()
+    AUGraphConnectNodeInput(graph, samplerNode, samplerOutputElement,  ioNode, ioUnitOutputElement).checkError()
 
     var outIsInitialized = DarwinBoolean(false)
-    AUGraphIsInitialized(graph, &outIsInitialized).printIfError()
+    AUGraphIsInitialized(graph, &outIsInitialized).checkError()
     if !outIsInitialized.boolValue {
-      AUGraphInitialize(graph).printIfError()
+      AUGraphInitialize(graph).checkError()
     }
 
     var isRunning = DarwinBoolean(false)
-    AUGraphIsRunning(graph, &isRunning).printIfError()
+    AUGraphIsRunning(graph, &isRunning).checkError()
     if !isRunning.boolValue {
-      AUGraphStart(graph).printIfError()
+      AUGraphStart(graph).checkError()
     }
   }
 }
