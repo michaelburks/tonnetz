@@ -26,45 +26,62 @@ extension Note {
 
 typealias Chord = UInt16
 extension Chord {
-  static var aMinor = Note.a | Note.c | Note.e
-  static var aMajor = Note.a | Note.csharp | Note.e
+  static var aMinorTriad = Note.a | Note.c | Note.e
+  static var aMajorTriad = Note.a | Note.csharp | Note.e
 
-  static var bflatMinor = Note.bflat | Note.csharp | Note.f
-  static var bflatMajor = Note.bflat | Note.d | Note.f
+  static var bflatMinorTriad = Note.bflat | Note.csharp | Note.f
+  static var bflatMajorTriad = Note.bflat | Note.d | Note.f
 
-  static var bMinor = Note.b | Note.d | Note.fsharp
-  static var bMajor = Note.b | Note.eflat | Note.fsharp
+  static var bMinorTriad = Note.b | Note.d | Note.fsharp
+  static var bMajorTriad = Note.b | Note.eflat | Note.fsharp
 
-  static var cMinor = Note.c | Note.eflat | Note.g
-  static var cMajor = Note.c | Note.e | Note.g
+  static var cMinorTriad = Note.c | Note.eflat | Note.g
+  static var cMajorTriad = Note.c | Note.e | Note.g
 
-  static var csharpMinor = Note.csharp | Note.e | Note.gsharp
-  static var csharpMajor = Note.csharp | Note.f | Note.gsharp
+  static var csharpMinorTriad = Note.csharp | Note.e | Note.gsharp
+  static var csharpMajorTriad = Note.csharp | Note.f | Note.gsharp
 
-  static var dMinor = Note.d | Note.f | Note.a
-  static var dMajor = Note.d | Note.fsharp | Note.a
+  static var dMinorTriad = Note.d | Note.f | Note.a
+  static var dMajorTriad = Note.d | Note.fsharp | Note.a
 
-  static var eflatMinor = Note.eflat | Note.fsharp | Note.bflat
-  static var eflatMajor = Note.eflat | Note.g | Note.bflat
+  static var eflatMinorTriad = Note.eflat | Note.fsharp | Note.bflat
+  static var eflatMajorTriad = Note.eflat | Note.g | Note.bflat
 
-  static var eMinor = Note.e | Note.g | Note.b
-  static var eMajor = Note.e | Note.gsharp | Note.b
+  static var eMinorTriad = Note.e | Note.g | Note.b
+  static var eMajorTriad = Note.e | Note.gsharp | Note.b
 
-  static var fMinor = Note.f | Note.gsharp | Note.c
-  static var fMajor = Note.f | Note.a | Note.c
+  static var fMinorTriad = Note.f | Note.gsharp | Note.c
+  static var fMajorTriad = Note.f | Note.a | Note.c
 
-  static var fsharpMinor = Note.fsharp | Note.a | Note.csharp
-  static var fsharpMajor = Note.fsharp | Note.bflat | Note.csharp
+  static var fsharpMinorTriad = Note.fsharp | Note.a | Note.csharp
+  static var fsharpMajorTriad = Note.fsharp | Note.bflat | Note.csharp
 
-  static var gMinor = Note.g | Note.bflat | Note.d
-  static var gMajor = Note.g | Note.b | Note.d
+  static var gMinorTriad = Note.g | Note.bflat | Note.d
+  static var gMajorTriad = Note.g | Note.b | Note.d
 
-  static var gsharpMinor = Note.gsharp | Note.b | Note.eflat
-  static var gsharpMajor = Note.gsharp | Note.c | Note.eflat
+  static var gsharpMinorTriad = Note.gsharp | Note.b | Note.eflat
+  static var gsharpMajorTriad = Note.gsharp | Note.c | Note.eflat
 
   static var triads = [
-    aMinor, aMajor, bflatMinor, bflatMajor, bMinor, bMajor, cMinor, cMajor,
-    csharpMinor, csharpMajor, dMinor, dMajor, eflatMinor, eflatMajor, eMinor, eMajor,
-    fMinor, fMajor, fsharpMinor, fsharpMajor, gMinor, gMajor, gsharpMinor, gsharpMajor
+    aMinorTriad, aMajorTriad, bflatMinorTriad, bflatMajorTriad, bMinorTriad, bMajorTriad, cMinorTriad, cMajorTriad,
+    csharpMinorTriad, csharpMajorTriad, dMinorTriad, dMajorTriad, eflatMinorTriad, eflatMajorTriad, eMinorTriad, eMajorTriad,
+    fMinorTriad, fMajorTriad, fsharpMinorTriad, fsharpMajorTriad, gMinorTriad, gMajorTriad, gsharpMinorTriad, gsharpMajorTriad
   ]
+}
+
+
+typealias Scale = UInt16
+extension Scale {
+  static var cMajorScale = Note.c | Note.d | Note.e | Note.f | Note.g | Note.a | Note.b
+  static var csharpMajorScale = Note.csharp | Note.eflat | Note.f | Note.fsharp | Note.gsharp | Note.bflat | Note.c
+  static var dMajorScale = Note.d | Note.e | Note.fsharp | Note.g | Note.a | Note.b | Note.csharp
+  static var eflatMajorScale = Note.eflat | Note.f | Note.g | Note.gsharp | Note.bflat | Note.c | Note.d
+  static var eMajorScale = Note.e | Note.fsharp | Note.gsharp | Note.a | Note.b | Note.csharp | Note.eflat
+  static var fMajorScale = Note.f | Note.g | Note.a | Note.bflat | Note.c | Note.d | Note.e
+  static var fsharpMajorScale = Note.fsharp | Note.gsharp | Note.bflat | Note.b | Note.csharp | Note.eflat | Note.f
+  static var gMajorScale = Note.g | Note.a | Note.b | Note.c | Note.d | Note.e | Note.fsharp
+  static var gsharpMajorScale = Note.gsharp | Note.bflat | Note.c | Note.csharp | Note.eflat | Note.f | Note.g
+  static var aMajorScale = Note.a | Note.b | Note.csharp | Note.d | Note.e | Note.fsharp | Note.gsharp
+  static var bflatMajorScale = Note.bflat | Note.c | Note.d | Note.eflat | Note.f | Note.g | Note.a
+  static var bMajorScale = Note.b | Note.csharp | Note.eflat | Note.e | Note.fsharp | Note.gsharp | Note.bflat
 }

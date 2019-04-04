@@ -236,7 +236,7 @@ class MIDIAudioGraph {
     samplerUnit = newSamplerUnit!
     ioUnit = newIOUnit!
 
-    if let bankURL = Bundle.main.url(forResource: "grandpiano", withExtension: "sf2") {
+    if let bankURL = Bundle.main.url(forResource: "Steinway", withExtension: "sf2") {
       var instdata = AUSamplerInstrumentData(fileURL: Unmanaged.passUnretained(bankURL as CFURL),
                                              instrumentType: UInt8(kInstrumentType_DLSPreset),
                                              bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB),

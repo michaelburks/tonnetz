@@ -22,7 +22,7 @@ class ViewController: NSViewController {
 
 //    scene = TonnetzScene()
 //    sceneView.scene = scene
-    scnView.allowsCameraControl = true
+//    scnView.allowsCameraControl = true
     self.view = scnView
   }
 

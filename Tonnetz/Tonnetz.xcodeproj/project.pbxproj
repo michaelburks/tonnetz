@@ -14,6 +14,7 @@
 		4C0518612252FCAC002F4776 /* MIDIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518602252FCAC002F4776 /* MIDIUtil.swift */; };
 		4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518622253E821002F4776 /* ConvenienceExtensions.swift */; };
 		4C051865225444C6002F4776 /* MusicTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C051864225444C6002F4776 /* MusicTheory.swift */; };
+		4C05186722559A08002F4776 /* Steinway.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C05186622559A08002F4776 /* Steinway.sf2 */; };
 		4C911E942250198700EA54AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E932250198700EA54AF /* AppDelegate.swift */; };
 		4C911E962250198700EA54AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E952250198700EA54AF /* ViewController.swift */; };
 		4C911E982250198700EA54AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E972250198700EA54AF /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		4C0518602252FCAC002F4776 /* MIDIUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIUtil.swift; sourceTree = "<group>"; };
 		4C0518622253E821002F4776 /* ConvenienceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenienceExtensions.swift; sourceTree = "<group>"; };
 		4C051864225444C6002F4776 /* MusicTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTheory.swift; sourceTree = "<group>"; };
+		4C05186622559A08002F4776 /* Steinway.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Steinway.sf2; sourceTree = "<group>"; };
 		4C911E902250198700EA54AF /* Tonnetz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonnetz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C911E932250198700EA54AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C911E952250198700EA54AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		4C911EBF225019AD00EA54AF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C05186622559A08002F4776 /* Steinway.sf2 */,
 				4C911EC1225019AD00EA54AF /* pathetique_2.mid */,
 				4C911EC4225019AD00EA54AF /* scene.scn */,
 				4C911EC5225019AD00EA54AF /* Actions.sks */,
@@ -274,6 +277,7 @@
 				4C911E982250198700EA54AF /* Assets.xcassets in Resources */,
 				4C911ECA225019AD00EA54AF /* scene.scn in Resources */,
 				4C911E9B2250198700EA54AF /* Main.storyboard in Resources */,
+				4C05186722559A08002F4776 /* Steinway.sf2 in Resources */,
 				4C911EC7225019AD00EA54AF /* pathetique_2.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,3 +33,6 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+## SoundFonts
+*.sf2

@@ -14,7 +14,7 @@ class TonnetzScene: SCNScene {
   let bank = MIDIBank()
 
   override init() {
-    tonnetz = Torus()
+    tonnetz = Lattice(width: 12, height: 12)
     super.init()
 
     for node in tonnetz.auxNodes {
@@ -45,17 +45,45 @@ protocol Tonnetz {
   func node(note: Note) -> SCNNode
 }
 
-//class Lattice: Tonnetz {
-//  var auxNodes = [SCNNode]()
-//
-//  var noteNodes = [SCNNode]()
-//
-//  func node(note: Note) -> SCNNode {
-//    return
-//  }
-//
-//
-//}
+extension Tonnetz {
+  func node(note: Note) -> SCNNode {
+    let i = Int(log2(Double(note)))
+    return noteNodes[i]
+  }
+}
+
+class Lattice: Tonnetz {
+  var auxNodes = [SCNNode]()
+  var noteNodes = [SCNNode]()
+
+  let width: Int
+  let height: Int
+
+  let spacing: CGFloat = 20.0
+  let radius: CGFloat = 5.0
+
+  init(width w: Int, height h: Int) {
+    width = w
+    height = h
+
+    for _ in 0..<12 {
+      noteNodes.append(SCNNode())
+    }
+
+    for x in 0...width {
+      for y in 0...height {
+        let n = (4*x + 3*y) % 12
+
+        let geo = SCNSphere(radius: radius)
+        geo.firstMaterial?.diffuse.contents = MIDIMath.colorForMIDI(n)
+        let node = SCNNode(geometry: geo)
+        node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
+
+        noteNodes[n].addChildNode(node)
+      }
+    }
+  }
+}
 
 class Torus: Tonnetz {
 
@@ -74,11 +102,6 @@ class Torus: Tonnetz {
   init() {
     auxNodes = [torus]
     noteNodes = Torus.MIDINodes()
-  }
-
-  func node(note: Note) -> SCNNode {
-    let i = Int(log2(Double(note)))
-    return noteNodes[i]
   }
 
   static func MIDINodes() -> [SCNNode] {
@@ -190,3 +213,29 @@ extension SCNNode: MIDINoteItem {
     }
   }
 }
+
+//class MIDINode: SCNNode {
+//  func update(note: MIDINote, event: MIDIEvent, velocity: UInt8, count: Int) {
+//    print("\(event) \(note)")
+//    DispatchQueue.main.async {
+//      if count > 0 {
+//        self.on = true
+//      } else {
+//        self.on = false
+//      }
+//    }
+//  }
+//
+//  func reset() {
+//    self.on = false
+//  }
+//
+//  var on: Bool {
+//    get {
+//      return !self.isHidden
+//    }
+//    set(newValue) {
+//      self.isHidden = !newValue
+//    }
+//  }
+//}
