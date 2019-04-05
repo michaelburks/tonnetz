@@ -8,9 +8,17 @@
 
 import SceneKit
 
-protocol Tonnetz {
+protocol Tonnetz: MIDIResponder {
   var auxNodes: [SCNNode] { get }
   var noteNodes: [MIDISceneNode] { get }
+}
+
+extension Tonnetz {
+  func handleMIDIEvent(_ event: MIDIEvent, note: MIDINote, velocity: UInt8, count: Int) {
+    let z = Int(note % 12)
+    let n = noteNodes[safe: z]
+    n?.update(note: note, event: event, velocity: velocity, count: count)
+  }
 }
 
 class Lattice: Tonnetz {
@@ -38,9 +46,9 @@ class Lattice: Tonnetz {
         let node = MIDISphereComponent(midi: MIDINote(n))
         node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
 
-        let ps = SCNParticleSystem(named: "particles", inDirectory:nil)!
-        ps.particleColor = color
-        node.addParticleSystem(ps)
+//        let ps = SCNParticleSystem(named: "particles", inDirectory:nil)!
+//        ps.particleColor = color
+//        node.addParticleSystem(ps)
 
         noteNodes[n].addComponent(node)
       }

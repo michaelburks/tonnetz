@@ -10,7 +10,7 @@
 		4C05185722501F5F002F4776 /* TonnetzScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185622501F5F002F4776 /* TonnetzScene.swift */; };
 		4C05185B225145EA002F4776 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185A225145EA002F4776 /* AudioPlayer.swift */; };
 		4C05185D2252C037002F4776 /* AppMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185C2252C037002F4776 /* AppMaster.swift */; };
-		4C05185F2252FBD0002F4776 /* MIDIVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */; };
+		4C05185F2252FBD0002F4776 /* MIDIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05185E2252FBD0002F4776 /* MIDIRouter.swift */; };
 		4C0518612252FCAC002F4776 /* MIDIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518602252FCAC002F4776 /* MIDIUtil.swift */; };
 		4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518622253E821002F4776 /* ConvenienceExtensions.swift */; };
 		4C051865225444C6002F4776 /* MusicTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C051864225444C6002F4776 /* MusicTheory.swift */; };
@@ -19,8 +19,8 @@
 		4C05186B2255C8BE002F4776 /* particles.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 4C0518692255C8BE002F4776 /* particles.scnp */; };
 		4C05186D225696C3002F4776 /* Tonnetz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05186C225696C3002F4776 /* Tonnetz.swift */; };
 		4C05186F22569717002F4776 /* MIDISceneItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05186E22569717002F4776 /* MIDISceneItems.swift */; };
+		4C0518712257DD6C002F4776 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518702257DD6C002F4776 /* RootViewController.swift */; };
 		4C911E942250198700EA54AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E932250198700EA54AF /* AppDelegate.swift */; };
-		4C911E962250198700EA54AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911E952250198700EA54AF /* ViewController.swift */; };
 		4C911E982250198700EA54AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E972250198700EA54AF /* Assets.xcassets */; };
 		4C911E9B2250198700EA54AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E992250198700EA54AF /* Main.storyboard */; };
 		4C911EA72250198700EA54AF /* TonnetzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911EA62250198700EA54AF /* TonnetzTests.swift */; };
@@ -52,7 +52,7 @@
 		4C05185622501F5F002F4776 /* TonnetzScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonnetzScene.swift; sourceTree = "<group>"; };
 		4C05185A225145EA002F4776 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		4C05185C2252C037002F4776 /* AppMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMaster.swift; sourceTree = "<group>"; };
-		4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIVisualizer.swift; sourceTree = "<group>"; };
+		4C05185E2252FBD0002F4776 /* MIDIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIRouter.swift; sourceTree = "<group>"; };
 		4C0518602252FCAC002F4776 /* MIDIUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIUtil.swift; sourceTree = "<group>"; };
 		4C0518622253E821002F4776 /* ConvenienceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenienceExtensions.swift; sourceTree = "<group>"; };
 		4C051864225444C6002F4776 /* MusicTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTheory.swift; sourceTree = "<group>"; };
@@ -61,9 +61,9 @@
 		4C0518692255C8BE002F4776 /* particles.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = particles.scnp; sourceTree = "<group>"; };
 		4C05186C225696C3002F4776 /* Tonnetz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tonnetz.swift; sourceTree = "<group>"; };
 		4C05186E22569717002F4776 /* MIDISceneItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISceneItems.swift; sourceTree = "<group>"; };
+		4C0518702257DD6C002F4776 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4C911E902250198700EA54AF /* Tonnetz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonnetz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C911E932250198700EA54AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C911E952250198700EA54AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C911E972250198700EA54AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C911E9A2250198700EA54AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C911E9C2250198700EA54AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,12 +130,12 @@
 			children = (
 				4C911E932250198700EA54AF /* AppDelegate.swift */,
 				4C05185C2252C037002F4776 /* AppMaster.swift */,
-				4C911E952250198700EA54AF /* ViewController.swift */,
+				4C0518702257DD6C002F4776 /* RootViewController.swift */,
 				4C05185A225145EA002F4776 /* AudioPlayer.swift */,
 				4C05185622501F5F002F4776 /* TonnetzScene.swift */,
 				4C05186C225696C3002F4776 /* Tonnetz.swift */,
 				4C05186E22569717002F4776 /* MIDISceneItems.swift */,
-				4C05185E2252FBD0002F4776 /* MIDIVisualizer.swift */,
+				4C05185E2252FBD0002F4776 /* MIDIRouter.swift */,
 				4C0518602252FCAC002F4776 /* MIDIUtil.swift */,
 				4C051864225444C6002F4776 /* MusicTheory.swift */,
 				4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */,
@@ -319,14 +319,14 @@
 			files = (
 				4C911ECD22501A0000EA54AF /* SceneKitAdditions.swift in Sources */,
 				4C05185D2252C037002F4776 /* AppMaster.swift in Sources */,
+				4C0518712257DD6C002F4776 /* RootViewController.swift in Sources */,
 				4C05186D225696C3002F4776 /* Tonnetz.swift in Sources */,
 				4C0518612252FCAC002F4776 /* MIDIUtil.swift in Sources */,
 				4C05185722501F5F002F4776 /* TonnetzScene.swift in Sources */,
 				4C05185B225145EA002F4776 /* AudioPlayer.swift in Sources */,
-				4C05185F2252FBD0002F4776 /* MIDIVisualizer.swift in Sources */,
+				4C05185F2252FBD0002F4776 /* MIDIRouter.swift in Sources */,
 				4C051865225444C6002F4776 /* MusicTheory.swift in Sources */,
 				4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */,
-				4C911E962250198700EA54AF /* ViewController.swift in Sources */,
 				4C05186F22569717002F4776 /* MIDISceneItems.swift in Sources */,
 				4C911E942250198700EA54AF /* AppDelegate.swift in Sources */,
 			);

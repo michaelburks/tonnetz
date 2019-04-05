@@ -22,21 +22,21 @@ class AppMaster {
 
   var player: AudioPlayer?
   let midiRouter: MIDIRouter = MIDIRouter()
-  var scene: TonnetzScene? {
+  var tonnetz: Tonnetz? {
     willSet {
-      midiRouter.removeListener(key: "scene")
+      midiRouter.removeListener(key: "tonnetz")
     }
     didSet {
-      liveVC?.sceneView?.scene = scene
-      if let s = scene {
-        midiRouter.register(listener: s, key: "scene")
+      liveVC?.setTonnetz(tonnetz)
+      if let tn = tonnetz {
+        midiRouter.register(listener: tn, key: "tonnetz")
       }
     }
   }
 
-  var liveVC: ViewController? {
+  var liveVC: RootViewController? {
     didSet {
-      liveVC?.sceneView?.scene = scene
+      liveVC?.setTonnetz(tonnetz)
     }
   }
 
@@ -44,28 +44,9 @@ class AppMaster {
     player = AudioPlayer(midiURL: LocalMIDI.pathetiqueURL)
     player?.MIDIdelegate = midiRouter
 
-    let lattice = Lattice(width: 12, height: 12)
-    let torus = Torus()
-//    scene = TonnetzScene(tonnetz: lattice)
-    scene = TonnetzScene(tonnetz: torus)
+    tonnetz = Lattice(width: 12, height: 12)
+//    tonnetz = Torus()
 
     self.player?.play()
-  }
-}
-
-class MIDIRouter: LiveMIDIHandlerDelegate {
-  var listeners = [String:LiveMIDIHandlerDelegate]()
-  func handleMIDIEvent(_ event: MIDIEvent, note: MIDINote, velocity: UInt8) {
-    listeners.forEach { (key: String, value: LiveMIDIHandlerDelegate) in
-      value.handleMIDIEvent(event, note: note, velocity: velocity)
-    }
-  }
-
-  func register(listener: LiveMIDIHandlerDelegate, key: String) {
-    listeners[key] = listener
-  }
-
-  func removeListener(key: String) {
-    listeners[key] = nil
   }
 }

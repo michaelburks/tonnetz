@@ -31,10 +31,3 @@ class TonnetzScene: SCNScene {
     fatalError("init(coder:) has not been implemented")
   }
 }
-
-extension TonnetzScene: MIDIVisualizer {
-  func MIDIItem(note: MIDINote) -> MIDISceneNode? {
-    let z = Int(note % 12)
-    return tonnetz.noteNodes[safe: z]
-  }
-}

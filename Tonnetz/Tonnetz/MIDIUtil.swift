@@ -54,9 +54,12 @@ extension MIDINote {
       }
     }
   }
-  var octaveBit: UInt16 {
+  var noteBit: NoteBit {
+    return NoteBit(1 << (self % 12))
+  }
+  var octaveBit: UInt32 {
     get {
-      return UInt16(1 << (self / 12))
+      return UInt32(1 << (self / 12))
     }
   }
   var octave: String {

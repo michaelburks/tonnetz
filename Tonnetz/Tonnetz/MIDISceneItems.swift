@@ -127,5 +127,4 @@ class MIDIParticleComponent: MIDISceneComponent {
     particleSystem.birthRate = 0.0
     particleSystem.reset()
   }
-
 }

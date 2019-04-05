@@ -9,7 +9,7 @@
 import Cocoa
 import SceneKit
 
-class ViewController: NSViewController {
+class RootViewController: NSViewController {
   var sceneView: SCNView? {
     get {
       return self.view as? SCNView
@@ -34,4 +34,12 @@ class ViewController: NSViewController {
     }
   }
 
+  func setTonnetz(_ tonnetz: Tonnetz?) {
+    if let t = tonnetz {
+      let ts = TonnetzScene(tonnetz: t)
+      self.sceneView?.scene = ts
+    } else {
+      self.sceneView?.scene = nil
+    }
+  }
 }

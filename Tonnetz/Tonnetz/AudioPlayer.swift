@@ -54,7 +54,7 @@ class AudioPlayer {
 
     MusicPlayerSetSequence(player, sequence).checkError()
 
-    MusicPlayerSetPlayRateScalar(player, 2.0).checkError()
+    MusicPlayerSetPlayRateScalar(player, 1.5).checkError()
     MusicPlayerPreroll(player).checkError()
   }
 
