@@ -706,50 +706,76 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="RootViewController" customModule="Tonnetz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="394"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rA8-GZ-fSJ" customClass="NSLabel">
-                                <rect key="frame" x="128" y="231" width="120" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="Select a MIDI file..." drawsBackground="YES" usesSingleLineMode="YES" id="QTv-sJ-cUX">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-5v-9XF">
-                                <rect key="frame" x="268" y="222" width="72" height="32"/>
-                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LuC-tB-wiA">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-CX-Sys">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="bqc-dg-FID">
+                                <rect key="frame" x="0.0" y="344" width="400" height="50"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-5v-9XF">
+                                        <rect key="frame" x="19" y="8" width="72" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="YSg-qp-F6f"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LuC-tB-wiA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rA8-GZ-fSJ" customClass="NSLabel">
+                                        <rect key="frame" x="100" y="17" width="175" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="Pick a MIDI file..." drawsBackground="YES" usesSingleLineMode="YES" id="QTv-sJ-cUX">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-DT-oiN">
+                                        <rect key="frame" x="309" y="8" width="72" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="MpU-Ya-upL"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rGI-cV-VKH">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="Go9-5F-QWE"/>
+                                    <constraint firstItem="rA8-GZ-fSJ" firstAttribute="leading" secondItem="h8A-5v-9XF" secondAttribute="trailing" constant="15" id="IyZ-FP-Ye2"/>
+                                    <constraint firstItem="h8A-5v-9XF" firstAttribute="leading" secondItem="bqc-dg-FID" secondAttribute="leading" constant="25" id="JJD-dY-Gs5"/>
+                                    <constraint firstItem="uDF-DT-oiN" firstAttribute="centerY" secondItem="bqc-dg-FID" secondAttribute="centerY" id="NSJ-LJ-XSR"/>
+                                    <constraint firstAttribute="trailing" secondItem="uDF-DT-oiN" secondAttribute="trailing" constant="25" id="fpP-pG-8FW"/>
+                                    <constraint firstAttribute="height" constant="50" id="q2z-YX-adt"/>
+                                    <constraint firstItem="h8A-5v-9XF" firstAttribute="centerY" secondItem="bqc-dg-FID" secondAttribute="centerY" id="qDE-yX-uD8"/>
+                                    <constraint firstItem="rA8-GZ-fSJ" firstAttribute="centerY" secondItem="bqc-dg-FID" secondAttribute="centerY" id="rH6-rl-e8x"/>
+                                    <constraint firstItem="uDF-DT-oiN" firstAttribute="leading" secondItem="rA8-GZ-fSJ" secondAttribute="trailing" constant="40" id="s1w-kE-jCu"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nmz-CX-Sys">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="344"/>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="nmz-CX-Sys" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="8uR-wJ-Pdr"/>
                             <constraint firstAttribute="trailing" secondItem="nmz-CX-Sys" secondAttribute="trailing" id="CJP-UJ-r1n"/>
-                            <constraint firstItem="h8A-5v-9XF" firstAttribute="centerY" secondItem="rA8-GZ-fSJ" secondAttribute="centerY" id="CZw-fu-IjI"/>
-                            <constraint firstItem="rA8-GZ-fSJ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Fra-vv-RHq"/>
-                            <constraint firstItem="h8A-5v-9XF" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="70" id="Mbj-9T-dHn"/>
-                            <constraint firstItem="nmz-CX-Sys" firstAttribute="top" secondItem="rA8-GZ-fSJ" secondAttribute="bottom" constant="20" id="Nsi-F6-rUi"/>
+                            <constraint firstItem="bqc-dg-FID" firstAttribute="bottom" secondItem="nmz-CX-Sys" secondAttribute="top" id="NH7-bh-L5p"/>
+                            <constraint firstAttribute="centerX" secondItem="bqc-dg-FID" secondAttribute="centerX" id="W1E-4M-z6S"/>
                             <constraint firstAttribute="bottom" secondItem="nmz-CX-Sys" secondAttribute="bottom" id="hT2-20-aba"/>
-                            <constraint firstItem="h8A-5v-9XF" firstAttribute="leading" secondItem="rA8-GZ-fSJ" secondAttribute="trailing" constant="20" id="tWk-m7-vHn"/>
-                            <constraint firstItem="rA8-GZ-fSJ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="-40" id="uI0-7u-Ppq"/>
-                            <constraint firstItem="h8A-5v-9XF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="22" id="zKC-Wp-fdy"/>
+                            <constraint firstItem="bqc-dg-FID" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="wFa-jV-ImC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fileButton" destination="h8A-5v-9XF" id="lAr-le-mxn"/>
                         <outlet property="fileLabel" destination="rA8-GZ-fSJ" id="ZTi-0S-FO2"/>
+                        <outlet property="playButton" destination="uDF-DT-oiN" id="uIQ-OC-MEw"/>
                         <outlet property="sceneContainer" destination="nmz-CX-Sys" id="XeG-sk-BZ1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="86.5" y="852"/>
         </scene>
     </scenes>
 </document>

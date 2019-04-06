@@ -25,7 +25,6 @@
 		4C911E9B2250198700EA54AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C911E992250198700EA54AF /* Main.storyboard */; };
 		4C911EA72250198700EA54AF /* TonnetzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911EA62250198700EA54AF /* TonnetzTests.swift */; };
 		4C911EB22250198700EA54AF /* TonnetzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911EB12250198700EA54AF /* TonnetzUITests.swift */; };
-		4C911EC7225019AD00EA54AF /* pathetique_2.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC1225019AD00EA54AF /* pathetique_2.mid */; };
 		4C911ECA225019AD00EA54AF /* scene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC4225019AD00EA54AF /* scene.scn */; };
 		4C911ECB225019AD00EA54AF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4C911EC5225019AD00EA54AF /* Actions.sks */; };
 		4C911ECD22501A0000EA54AF /* SceneKitAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */; };
@@ -74,7 +73,6 @@
 		4C911EAD2250198700EA54AF /* TonnetzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TonnetzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C911EB12250198700EA54AF /* TonnetzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonnetzUITests.swift; sourceTree = "<group>"; };
 		4C911EB32250198700EA54AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C911EC1225019AD00EA54AF /* pathetique_2.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = pathetique_2.mid; sourceTree = "<group>"; };
 		4C911EC4225019AD00EA54AF /* scene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = scene.scn; sourceTree = "<group>"; };
 		4C911EC5225019AD00EA54AF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		4C911ECC22501A0000EA54AF /* SceneKitAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitAdditions.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 				4C0518682255C8BE002F4776 /* smoke.png */,
 				4C0518692255C8BE002F4776 /* particles.scnp */,
 				4C05186622559A08002F4776 /* Steinway.sf2 */,
-				4C911EC1225019AD00EA54AF /* pathetique_2.mid */,
 				4C911EC4225019AD00EA54AF /* scene.scn */,
 				4C911EC5225019AD00EA54AF /* Actions.sks */,
 			);
@@ -291,7 +288,6 @@
 				4C911ECA225019AD00EA54AF /* scene.scn in Resources */,
 				4C911E9B2250198700EA54AF /* Main.storyboard in Resources */,
 				4C05186722559A08002F4776 /* Steinway.sf2 in Resources */,
-				4C911EC7225019AD00EA54AF /* pathetique_2.mid in Resources */,
 				4C05186B2255C8BE002F4776 /* particles.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

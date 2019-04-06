@@ -12,6 +12,7 @@ import SceneKit
 class RootViewController: NSViewController {
   @IBOutlet var fileLabel: NSTextField?
   @IBOutlet var fileButton: NSButton?
+  @IBOutlet var playButton: NSButton?
   @IBOutlet var sceneContainer: NSView?
 
   private var sceneView: SCNView?
@@ -23,11 +24,14 @@ class RootViewController: NSViewController {
 
     sceneContainer?.addSubview(sceneView!)
 
-    sceneView?.widthAnchor.constraint(equalToConstant: 400).isActive = true
-    sceneView?.heightAnchor.constraint(equalToConstant: 400).isActive = true
+    sceneView?.widthAnchor.constraint(equalToConstant: 600).isActive = true
+    sceneView?.heightAnchor.constraint(equalToConstant: 600).isActive = true
 
     sceneView?.centerXAnchor.constraint(equalTo: sceneContainer!.centerXAnchor).isActive = true
-    sceneView?.centerYAnchor.constraint(equalTo: sceneContainer!.centerYAnchor).isActive = true
+    sceneView?.topAnchor.constraint(equalTo: sceneContainer!.topAnchor).isActive = true
+
+    playButton?.isEnabled = false
+    playButton?.title = "Play"
   }
 
   override func viewWillAppear() {

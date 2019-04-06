@@ -8,14 +8,6 @@
 
 import Cocoa
 
-class LocalMIDI {
-  static var pathetiqueURL: URL {
-    get {
-      return Bundle.main.url(forResource: "pathetique_2", withExtension: "mid")!
-    }
-  }
-}
-
 class AppMaster {
   static let sharedInstance = AppMaster()
   private init() {}
@@ -38,6 +30,10 @@ class AppMaster {
     didSet {
       liveVC?.fileButton?.target = self
       liveVC?.fileButton?.action = #selector(AppMaster.selectFile(_:))
+
+      liveVC?.playButton?.target = self
+      liveVC?.playButton?.action = #selector(AppMaster.togglePlay(_:))
+
       liveVC?.setTonnetz(tonnetz)
     }
   }
@@ -67,10 +63,22 @@ class AppMaster {
         player?.midiURL = result
         liveVC?.fileLabel?.stringValue = result.lastPathComponent
         player?.play()
+        liveVC?.playButton?.title = "Pause"
+        liveVC?.playButton?.isEnabled = true
       }
     } else {
       // User clicked on "Cancel"
-      return
+      // No-op.
+    }
+  }
+
+  @objc func togglePlay(_ button: NSButton) {
+    if player?.isPlaying ?? false {
+      player?.pause()
+      liveVC?.playButton?.title = "Play"
+    } else {
+      player?.play()
+      liveVC?.playButton?.title = "Pause"
     }
   }
 }
