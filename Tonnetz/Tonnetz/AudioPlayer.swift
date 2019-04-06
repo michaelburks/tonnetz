@@ -26,11 +26,40 @@ struct MIDIHandlerRefs {
 }
 
 class AudioPlayer {
-  let sequence: MusicSequence
   let player: MusicPlayer
   let audio = MIDIAudioGraph()
   let midiHandlers: MIDIHandlerRefs
   var liveHandler: LiveMIDIHandler
+
+  var midiURL: URL? {
+    didSet {
+      if let url = midiURL {
+        sequence = AudioPlayer.makeSequence(with: url)
+      } else {
+        sequence = nil
+      }
+    }
+  }
+
+  var sequence: MusicSequence? {
+    willSet {
+      if let s = sequence {
+        pause()
+        DisposeMusicSequence(s)
+      }
+    }
+    didSet {
+      if let s = sequence {
+        MusicSequenceSetAUGraph(s, audio.graph).checkError()
+
+        MusicSequenceSetMIDIEndpoint(s, midiHandlers.endpointRef).checkError()
+
+        MusicPlayerSetSequence(player, s).checkError()
+
+        MusicPlayerPreroll(player).checkError()
+      }
+    }
+  }
 
   var MIDIdelegate: LiveMIDIHandlerDelegate? {
     get {
@@ -41,28 +70,18 @@ class AudioPlayer {
     }
   }
 
-  init(midiURL: URL) {
-    sequence = AudioPlayer.makeSequence(with: midiURL)
+  init() {
     player = AudioPlayer.makePlayer()
 
     liveHandler = LiveMIDIHandler(audio.samplerUnit)
     midiHandlers = AudioPlayer.makeNoteHandlers(liveHandlerRef: &liveHandler)
-
-    MusicSequenceSetAUGraph(sequence, audio.graph).checkError()
-
-    MusicSequenceSetMIDIEndpoint(sequence, midiHandlers.endpointRef).checkError()
-
-    MusicPlayerSetSequence(player, sequence).checkError()
-
-    MusicPlayerSetPlayRateScalar(player, 1.5).checkError()
-    MusicPlayerPreroll(player).checkError()
   }
 
   deinit {
     MusicPlayerStop(player).checkError()
     DisposeMusicPlayer(player).checkError()
     DisposeAUGraph(audio.graph).checkError()
-    DisposeMusicSequence(sequence).checkError()
+    sequence = nil
     MIDIClientDispose(midiHandlers.clientRef)
     MIDIEndpointDispose(midiHandlers.endpointRef)
   }
@@ -149,7 +168,8 @@ extension AudioPlayer {
 extension OSStatus {
   func checkError(_ msg: String = "", function: String = #function, line: Int = #line) {
     if self != OSStatus(noErr) {
-      print("Error at line \(line) in \(function): \(self) \(msg)")
+      print("AudioPlayer error at line \(line) in \(function): \(self) \(msg)")
+      print("Look up status code at https://www.osstatus.com/")
     }
   }
 }

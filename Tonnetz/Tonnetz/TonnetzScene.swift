@@ -11,8 +11,6 @@ import SceneKit
 class TonnetzScene: SCNScene {
   let tonnetz: Tonnetz
 
-  let bank = MIDIBank()
-
   init(tonnetz initVal: Tonnetz) {
     tonnetz = initVal
     super.init()

@@ -36,17 +36,41 @@ class AppMaster {
 
   var liveVC: RootViewController? {
     didSet {
+      liveVC?.fileButton?.target = self
+      liveVC?.fileButton?.action = #selector(AppMaster.selectFile(_:))
       liveVC?.setTonnetz(tonnetz)
     }
   }
 
   func reset() {
-    player = AudioPlayer(midiURL: LocalMIDI.pathetiqueURL)
+    player = AudioPlayer()
     player?.MIDIdelegate = midiRouter
 
     tonnetz = Lattice(width: 12, height: 12)
 //    tonnetz = Torus()
 
-    self.player?.play()
+//    self.player?.play()
+  }
+
+  @objc func selectFile(_ button: NSButton) {
+    let dialog = NSOpenPanel()
+    dialog.title = "Select a MIDI file"
+    dialog.showsResizeIndicator    = true;
+    dialog.showsHiddenFiles        = false;
+    dialog.canChooseDirectories    = true;
+    dialog.canCreateDirectories    = false;
+    dialog.allowsMultipleSelection = false;
+    dialog.allowedFileTypes        = ["mid", "midi"];
+
+    if (dialog.runModal() == .OK) {
+      if let result = dialog.url {
+        player?.midiURL = result
+        liveVC?.fileLabel?.stringValue = result.lastPathComponent
+        player?.play()
+      }
+    } else {
+      // User clicked on "Cancel"
+      return
+    }
   }
 }

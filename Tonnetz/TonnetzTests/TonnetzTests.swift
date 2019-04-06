@@ -30,18 +30,16 @@ class TonnetzTests: XCTestCase {
       bank[22] = .on
 
       XCTAssertEqual(bank[22], .on)
-      XCTAssertEqual(bank.count(note: 22), 1)
+      XCTAssertEqual(bank.count(note: 22), 2)
 
       bank[10] = .off
       XCTAssertEqual(bank[10], .off)
       XCTAssertEqual(bank[22], .on)
       XCTAssertEqual(bank.count(note: 22), 1)
 
-
       bank[22] = .off
       XCTAssertEqual(bank[22], .off)
       XCTAssertEqual(bank.count(note: 22), 0)
-
     }
 
     func testPerformanceExample() {

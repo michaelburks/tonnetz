@@ -708,7 +708,44 @@
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rA8-GZ-fSJ" customClass="NSLabel">
+                                <rect key="frame" x="128" y="231" width="120" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="Select a MIDI file..." drawsBackground="YES" usesSingleLineMode="YES" id="QTv-sJ-cUX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-5v-9XF">
+                                <rect key="frame" x="268" y="222" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LuC-tB-wiA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-CX-Sys">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nmz-CX-Sys" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="8uR-wJ-Pdr"/>
+                            <constraint firstAttribute="trailing" secondItem="nmz-CX-Sys" secondAttribute="trailing" id="CJP-UJ-r1n"/>
+                            <constraint firstItem="h8A-5v-9XF" firstAttribute="centerY" secondItem="rA8-GZ-fSJ" secondAttribute="centerY" id="CZw-fu-IjI"/>
+                            <constraint firstItem="rA8-GZ-fSJ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Fra-vv-RHq"/>
+                            <constraint firstItem="h8A-5v-9XF" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="70" id="Mbj-9T-dHn"/>
+                            <constraint firstItem="nmz-CX-Sys" firstAttribute="top" secondItem="rA8-GZ-fSJ" secondAttribute="bottom" constant="20" id="Nsi-F6-rUi"/>
+                            <constraint firstAttribute="bottom" secondItem="nmz-CX-Sys" secondAttribute="bottom" id="hT2-20-aba"/>
+                            <constraint firstItem="h8A-5v-9XF" firstAttribute="leading" secondItem="rA8-GZ-fSJ" secondAttribute="trailing" constant="20" id="tWk-m7-vHn"/>
+                            <constraint firstItem="rA8-GZ-fSJ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="-40" id="uI0-7u-Ppq"/>
+                            <constraint firstItem="h8A-5v-9XF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="22" id="zKC-Wp-fdy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fileButton" destination="h8A-5v-9XF" id="lAr-le-mxn"/>
+                        <outlet property="fileLabel" destination="rA8-GZ-fSJ" id="ZTi-0S-FO2"/>
+                        <outlet property="sceneContainer" destination="nmz-CX-Sys" id="XeG-sk-BZ1"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

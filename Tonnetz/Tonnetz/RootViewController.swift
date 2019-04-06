@@ -10,17 +10,24 @@ import Cocoa
 import SceneKit
 
 class RootViewController: NSViewController {
-  var sceneView: SCNView? {
-    get {
-      return self.view as? SCNView
-    }
-  }
+  @IBOutlet var fileLabel: NSTextField?
+  @IBOutlet var fileButton: NSButton?
+  @IBOutlet var sceneContainer: NSView?
 
-  override func loadView() {
-    let scnView = SCNView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
-    scnView.backgroundColor = .black
+  private var sceneView: SCNView?
 
-    self.view = scnView
+  override func viewDidLoad() {
+    sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+    sceneView?.translatesAutoresizingMaskIntoConstraints = false
+    sceneView!.backgroundColor = .black
+
+    sceneContainer?.addSubview(sceneView!)
+
+    sceneView?.widthAnchor.constraint(equalToConstant: 400).isActive = true
+    sceneView?.heightAnchor.constraint(equalToConstant: 400).isActive = true
+
+    sceneView?.centerXAnchor.constraint(equalTo: sceneContainer!.centerXAnchor).isActive = true
+    sceneView?.centerYAnchor.constraint(equalTo: sceneContainer!.centerYAnchor).isActive = true
   }
 
   override func viewWillAppear() {
