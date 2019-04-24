@@ -27,4 +27,20 @@ extension SCNVector3 {
   static func - (left: SCNVector3, right: SCNVector3) -> SCNVector3 {
     return SCNVector3Make(left.x - right.x, left.y - right.y, left.z - right.z)
   }
+
+  static func * (left: CGFloat, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3Make(left * right.x, left * right.y, left * right.z)
+  }
+
+  static func * (left: SCNVector3, right: CGFloat) -> SCNVector3 {
+    return right * left
+  }
+
+  static func + (left: CGFloat, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3Make(left + right.x, left + right.y, left + right.z)
+  }
+
+  static func + (left: SCNVector3, right: CGFloat) -> SCNVector3 {
+    return right + left
+  }
 }

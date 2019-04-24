@@ -27,7 +27,7 @@ class MIDIRouter: LiveMIDIHandlerDelegate {
     let count = bank.count(note: note)
 
     listeners.forEach { (key: String, value: MIDIResponder) in
-      value.handleMIDIEvent(event, note: note, velocity: velocity, count: count)
+      value.handleMIDIEvent(ev, note: note, velocity: velocity, count: count)
     }
   }
 

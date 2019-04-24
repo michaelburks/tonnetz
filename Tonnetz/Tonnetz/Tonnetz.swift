@@ -17,11 +17,13 @@ extension Tonnetz {
   func handleMIDIEvent(_ event: MIDIEvent, note: MIDINote, velocity: UInt8, count: Int) {
     let z = Int(note % 12)
     let n = noteNodes[safe: z]
-    n?.update(note: note, event: event, velocity: velocity, count: count)
+    DispatchQueue.main.async {
+      n?.update(note: note, event: event, velocity: velocity, count: count)
+    }
   }
 }
 
-class Lattice: Tonnetz {
+class HexLattice: Tonnetz {
   var noteNodes = [MIDISceneNode]()
   var auxNodes = [SCNNode]()
 
@@ -29,7 +31,56 @@ class Lattice: Tonnetz {
   let height: Int
 
   let spacing: CGFloat = 20.0
-  let radius: CGFloat = 5.0
+
+  init(width w: Int, height h: Int) {
+    width = w
+    height = h
+
+    for _ in 0..<12 {
+      noteNodes.append(MIDISceneNode())
+    }
+
+    let ln = SCNNode()
+    let light = SCNLight()
+    light.type = .ambient
+    light.intensity = 10
+    ln.light = light
+    auxNodes.append(ln)
+
+    for x in 0...width {
+      var yShift: Int = 7
+      for y in 0...height {
+        var xOffset: CGFloat = 0.0
+
+        if y % 2 == 1 {
+          xOffset = spacing * 0.5
+        } else {
+          yShift += 5
+        }
+
+        let n = (7*x + 4*y + yShift) % 12
+
+        let vSpacing = sqrt(3.0) * 0.5 * spacing
+//        let comp = MIDISphereComponent(midi: MIDINote(n))
+//        let comp = MIDIParticleComponent(midi: MIDINote(n))
+
+        let comp = MIDILightComponent(midi: MIDINote(n))
+        comp.node.position = SCNVector3Make(spacing * CGFloat(x) + xOffset, vSpacing * CGFloat(y), 0)
+
+        noteNodes[n].addComponent(comp)
+      }
+    }
+  }
+}
+
+class SquareLattice: Tonnetz {
+  var noteNodes = [MIDISceneNode]()
+  var auxNodes = [SCNNode]()
+
+  let width: Int
+  let height: Int
+
+  let spacing: CGFloat = 20.0
 
   init(width w: Int, height h: Int) {
     width = w
@@ -43,19 +94,16 @@ class Lattice: Tonnetz {
       for y in 0...height {
         let n = (4*x + 3*y) % 12
 
-        let node = MIDISphereComponent(midi: MIDINote(n))
-        node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
+        //        let comp = MIDISphereComponent(midi: MIDINote(n))
+        //        let comp = MIDIParticleComponent(midi: MIDINote(n))
+        let light = MIDILightComponent(midi: MIDINote(n))
+        light.node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
 
-//        let ps = SCNParticleSystem(named: "particles", inDirectory:nil)!
-//        ps.particleColor = color
-//        node.addParticleSystem(ps)
-
-        noteNodes[n].addComponent(node)
+        noteNodes[n].addComponent(light)
       }
     }
   }
 }
-
 class Torus: Tonnetz {
   var noteNodes: [MIDISceneNode]
   var auxNodes: [SCNNode]
@@ -78,7 +126,7 @@ class Torus: Tonnetz {
     for i in stride(from: 0, to: 12, by: 1) {
       let (pos, center) = Torus.coordsForMIDI(i)
 
-      let node = MIDISphereComponent(midi: MIDINote(i))
+      let node = MIDISphereBinaryComponent(midi: MIDINote(i))
       node.position = pos
 
       let baseNode = MIDISceneNode()
@@ -116,8 +164,8 @@ class Torus: Tonnetz {
   }
 }
 
-class MIDIMath {
-  static func colorForMIDI(_ value: MIDINote) -> NSColor {
+extension NSColor {
+  static func midiColor(_ value: MIDINote) -> NSColor {
     let hue = CGFloat(value % 12) / 12.0
     return NSColor(hue: hue, saturation: 0.6, brightness: 0.6, alpha: 1.0)
   }

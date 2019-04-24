@@ -42,8 +42,7 @@ class AppMaster {
     player = AudioPlayer()
     player?.MIDIdelegate = midiRouter
 
-    tonnetz = Lattice(width: 12, height: 12)
-//    tonnetz = Torus()
+    tonnetz = HexLattice(width: 12, height: 12)
 
 //    self.player?.play()
   }

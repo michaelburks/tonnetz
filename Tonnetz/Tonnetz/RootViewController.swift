@@ -21,6 +21,7 @@ class RootViewController: NSViewController {
     sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
     sceneView?.translatesAutoresizingMaskIntoConstraints = false
     sceneView!.backgroundColor = .black
+//    sceneView!.autoenablesDefaultLighting = false
 
     sceneContainer?.addSubview(sceneView!)
 
