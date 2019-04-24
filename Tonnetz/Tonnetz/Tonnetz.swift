@@ -63,7 +63,7 @@ enum LatticeStyle: LatticeStyleProtocol {
   }
 }
 
-class Lattice<Component: MIDISceneComponent>: NSObject, Tonnetz {
+class Lattice: NSObject, Tonnetz {
 
   var noteNodes = [MIDISceneNode]()
   var auxNodes = [SCNNode]()
@@ -77,7 +77,7 @@ class Lattice<Component: MIDISceneComponent>: NSObject, Tonnetz {
 
   let spacing: CGFloat = 20.0
 
-  required init(style s: LatticeStyle, componentType: Component.Type, width w: Int, height h: Int) {
+  required init<Component: MIDISceneComponent>(style s: LatticeStyle, componentType: Component.Type, width w: Int, height h: Int) {
     _width = w
     _height = h
     style = s
