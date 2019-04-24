@@ -74,3 +74,12 @@ extension MIDINote {
     }
   }
 }
+
+import AppKit
+
+extension NSColor {
+  static func midiColor(_ value: MIDINote) -> NSColor {
+    let hue = CGFloat(value % 12) / 12.0
+    return NSColor(hue: hue, saturation: 0.6, brightness: 0.6, alpha: 1.0)
+  }
+}

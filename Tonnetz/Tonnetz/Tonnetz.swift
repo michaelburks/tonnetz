@@ -8,7 +8,7 @@
 
 import SceneKit
 
-protocol Tonnetz: MIDIResponder {
+protocol Tonnetz: MIDIResponder, SCNSceneRendererDelegate, AnyObject {
   var auxNodes: [SCNNode] { get }
   var noteNodes: [MIDISceneNode] { get }
 }
@@ -23,86 +23,83 @@ extension Tonnetz {
   }
 }
 
-class HexLattice: Tonnetz {
+protocol LatticeStyleProtocol {
+  func noteAtLatticePoint(_ x: Int, _ y: Int) -> Int
+  func positionForLatticePoint(_ x: Int, _ y: Int, spacing: CGFloat) -> SCNVector3
+}
+
+enum LatticeStyle: LatticeStyleProtocol {
+  case Square
+  case Hex
+
+  func noteAtLatticePoint(_ x: Int, _ y: Int) -> Int {
+    var n = 0
+
+    switch self {
+    case .Square:
+      n = (4*x + 3*y) % 12
+    case .Hex:
+      let shift = 7 + (y/2) * 5
+      n = (7*x + 4*y + shift) % 12
+    }
+
+    return n
+  }
+
+  func positionForLatticePoint(_ x: Int, _ y: Int, spacing: CGFloat) -> SCNVector3 {
+    var vx: CGFloat = 0.0
+    var vy: CGFloat = 0.0
+
+    switch self {
+    case .Square:
+      vx = spacing * CGFloat(x)
+      vy = spacing * CGFloat(y)
+    case .Hex:
+      vx = spacing * CGFloat(x) + CGFloat(y % 2) * spacing * 0.5
+      vy = spacing * sqrt(3.0) * 0.5 * CGFloat(y)
+    }
+
+    return SCNVector3Make(vx, vy, 0.0)
+  }
+}
+
+class Lattice<Component: MIDISceneComponent>: NSObject, Tonnetz {
+
   var noteNodes = [MIDISceneNode]()
   var auxNodes = [SCNNode]()
 
-  let width: Int
-  let height: Int
+  var width: Int { return _width }
+  var height: Int { return _height }
+
+  let _width: Int
+  let _height: Int
+  let style: LatticeStyle
 
   let spacing: CGFloat = 20.0
 
-  init(width w: Int, height h: Int) {
-    width = w
-    height = h
+  required init(style s: LatticeStyle, componentType: Component.Type, width w: Int, height h: Int) {
+    _width = w
+    _height = h
+    style = s
+
+    super.init()
 
     for _ in 0..<12 {
       noteNodes.append(MIDISceneNode())
     }
 
-    let ln = SCNNode()
-    let light = SCNLight()
-    light.type = .ambient
-    light.intensity = 10
-    ln.light = light
-    auxNodes.append(ln)
-
     for x in 0...width {
-      var yShift: Int = 7
       for y in 0...height {
-        var xOffset: CGFloat = 0.0
-
-        if y % 2 == 1 {
-          xOffset = spacing * 0.5
-        } else {
-          yShift += 5
-        }
-
-        let n = (7*x + 4*y + yShift) % 12
-
-        let vSpacing = sqrt(3.0) * 0.5 * spacing
-        
-//        let comp = MIDISphereComponent(midi: MIDINote(n))
-        let comp = MIDILightComponent(midi: MIDINote(n))
-        comp.node.position = SCNVector3Make(spacing * CGFloat(x) + xOffset, vSpacing * CGFloat(y), 0)
-
-        noteNodes[n].addComponent(comp)
+        let note = style.noteAtLatticePoint(x, y)
+        let comp = Component.init(midi: MIDINote(note))
+        comp.node.position = style.positionForLatticePoint(x, y, spacing: spacing)
+        noteNodes[note].addComponent(comp)
       }
     }
   }
 }
 
-class SquareLattice: Tonnetz {
-  var noteNodes = [MIDISceneNode]()
-  var auxNodes = [SCNNode]()
-
-  let width: Int
-  let height: Int
-
-  let spacing: CGFloat = 20.0
-
-  init(width w: Int, height h: Int) {
-    width = w
-    height = h
-
-    for _ in 0..<12 {
-      noteNodes.append(MIDISceneNode())
-    }
-
-    for x in 0...width {
-      for y in 0...height {
-        let n = (4*x + 3*y) % 12
-
-        //        let comp = MIDISphereComponent(midi: MIDINote(n))
-        let light = MIDILightComponent(midi: MIDINote(n))
-        light.node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
-
-        noteNodes[n].addComponent(light)
-      }
-    }
-  }
-}
-class Torus: Tonnetz {
+class Torus: NSObject, Tonnetz {
   var noteNodes: [MIDISceneNode]
   var auxNodes: [SCNNode]
 
@@ -114,9 +111,10 @@ class Torus: Tonnetz {
     return node
   }()
 
-  init() {
+  override init() {
     auxNodes = [torus]
     noteNodes = Torus.MIDINodes()
+    super.init()
   }
 
   static func MIDINodes() -> [MIDISceneNode] {
@@ -159,12 +157,5 @@ class Torus: Tonnetz {
     let relative = startCoord - center
 
     return (relative, center)
-  }
-}
-
-extension NSColor {
-  static func midiColor(_ value: MIDINote) -> NSColor {
-    let hue = CGFloat(value % 12) / 12.0
-    return NSColor(hue: hue, saturation: 0.6, brightness: 0.6, alpha: 1.0)
   }
 }

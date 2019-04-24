@@ -38,6 +38,8 @@ class MIDISceneNode: SCNNode {
 
 // Component to attach to a MIDISceneNode.
 protocol MIDISceneComponent {
+  init(midi: MIDINote)
+
   var node: SCNNode { get }
   func update(note: MIDINote, event: MIDIEvent, velocity: UInt8, count: Int)
   func reset()
@@ -65,7 +67,7 @@ extension MIDISceneBinaryComponent {
 }
 
 class MIDISphereBinaryComponent: SCNNode, MIDISceneBinaryComponent {
-  init(midi: MIDINote) {
+  required init(midi: MIDINote) {
     let geo = SCNSphere(radius: 5.0)
     geo.firstMaterial?.diffuse.contents = NSColor.midiColor(midi)
     super.init()
@@ -110,7 +112,7 @@ class MIDISphereComponent: MIDISceneComponent {
     }
   }
 
-  init(midi: MIDINote) {
+  required init(midi: MIDINote) {
     _node = SCNNode(geometry: SCNSphere(radius: 5.0))
     _node.geometry?.firstMaterial?.diffuse.contents = NSColor.midiColor(midi)
   }
@@ -142,9 +144,7 @@ class MIDILightComponent: MIDISceneComponent {
   private let _node: SCNNode
   private let _light: SCNLight
 
-  let spacing: CGFloat = 5.0
-
-  init(midi: MIDINote) {
+  required init(midi: MIDINote) {
     _node = SCNNode(geometry: SCNSphere(radius: 5.0))
     let m = MIDILightComponent.nodeMaterial()
     _node.geometry?.firstMaterial = m

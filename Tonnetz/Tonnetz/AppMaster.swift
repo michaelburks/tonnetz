@@ -42,9 +42,7 @@ class AppMaster {
     player = AudioPlayer()
     player?.MIDIdelegate = midiRouter
 
-    tonnetz = HexLattice(width: 12, height: 12)
-
-//    self.player?.play()
+    tonnetz = Lattice(style: .Hex, componentType: MIDILightComponent.self, width: 12, height: 12)
   }
 
   @objc func selectFile(_ button: NSButton) {
