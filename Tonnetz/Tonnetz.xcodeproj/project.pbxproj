@@ -15,8 +15,6 @@
 		4C0518632253E821002F4776 /* ConvenienceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518622253E821002F4776 /* ConvenienceExtensions.swift */; };
 		4C051865225444C6002F4776 /* MusicTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C051864225444C6002F4776 /* MusicTheory.swift */; };
 		4C05186722559A08002F4776 /* Steinway.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 4C05186622559A08002F4776 /* Steinway.sf2 */; };
-		4C05186A2255C8BE002F4776 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0518682255C8BE002F4776 /* smoke.png */; };
-		4C05186B2255C8BE002F4776 /* particles.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 4C0518692255C8BE002F4776 /* particles.scnp */; };
 		4C05186D225696C3002F4776 /* Tonnetz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05186C225696C3002F4776 /* Tonnetz.swift */; };
 		4C05186F22569717002F4776 /* MIDISceneItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C05186E22569717002F4776 /* MIDISceneItems.swift */; };
 		4C0518712257DD6C002F4776 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0518702257DD6C002F4776 /* RootViewController.swift */; };
@@ -56,8 +54,6 @@
 		4C0518622253E821002F4776 /* ConvenienceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvenienceExtensions.swift; sourceTree = "<group>"; };
 		4C051864225444C6002F4776 /* MusicTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTheory.swift; sourceTree = "<group>"; };
 		4C05186622559A08002F4776 /* Steinway.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Steinway.sf2; sourceTree = "<group>"; };
-		4C0518682255C8BE002F4776 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
-		4C0518692255C8BE002F4776 /* particles.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = particles.scnp; sourceTree = "<group>"; };
 		4C05186C225696C3002F4776 /* Tonnetz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tonnetz.swift; sourceTree = "<group>"; };
 		4C05186E22569717002F4776 /* MIDISceneItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISceneItems.swift; sourceTree = "<group>"; };
 		4C0518702257DD6C002F4776 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 		4C911EBF225019AD00EA54AF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4C0518682255C8BE002F4776 /* smoke.png */,
-				4C0518692255C8BE002F4776 /* particles.scnp */,
 				4C05186622559A08002F4776 /* Steinway.sf2 */,
 				4C911EC4225019AD00EA54AF /* scene.scn */,
 				4C911EC5225019AD00EA54AF /* Actions.sks */,
@@ -284,11 +278,9 @@
 			files = (
 				4C911ECB225019AD00EA54AF /* Actions.sks in Resources */,
 				4C911E982250198700EA54AF /* Assets.xcassets in Resources */,
-				4C05186A2255C8BE002F4776 /* smoke.png in Resources */,
 				4C911ECA225019AD00EA54AF /* scene.scn in Resources */,
 				4C911E9B2250198700EA54AF /* Main.storyboard in Resources */,
 				4C05186722559A08002F4776 /* Steinway.sf2 in Resources */,
-				4C05186B2255C8BE002F4776 /* particles.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

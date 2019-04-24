@@ -138,51 +138,6 @@ class MIDISphereComponent: MIDISceneComponent {
   }
 }
 
-class MIDIParticleComponent: MIDISceneComponent {
-
-  private let _particleSystem: SCNParticleSystem
-  private let _node: SCNNode
-
-  init(midi: MIDINote) {
-    _node = SCNNode(geometry: SCNSphere(radius: 1.0))
-    _particleSystem = SCNParticleSystem(named: "particles", inDirectory: nil)!
-    _particleSystem.particleColor = NSColor.midiColor(midi)
-    _node.addParticleSystem(_particleSystem)
-
-    let decay = SCNAction.customAction(duration: 1.0) { (node, time) in
-      if let ps = node.particleSystems?.first {
-        ps.birthRate *= 0.5
-      }
-    }
-    let repeatDecay = SCNAction.repeatForever(decay)
-
-    _node.runAction(repeatDecay)
-  }
-
-  var node: SCNNode {
-    get {
-      return _node
-    }
-  }
-
-  func update(note: MIDINote, event: MIDIEvent, velocity: UInt8, count: Int) {
-    if event == .off {
-      if count == 0 {
-        reset()
-      } else {
-        _particleSystem.birthRate *= 0.5
-      }
-    } else {
-      _particleSystem.birthRate += CGFloat(velocity) * 100.0 /// 10.0s
-    }
-  }
-
-  func reset() {
-    _particleSystem.birthRate = 0.0
-    _particleSystem.reset()
-  }
-}
-
 class MIDILightComponent: MIDISceneComponent {
   private let _node: SCNNode
   private let _light: SCNLight

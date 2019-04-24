@@ -61,9 +61,8 @@ class HexLattice: Tonnetz {
         let n = (7*x + 4*y + yShift) % 12
 
         let vSpacing = sqrt(3.0) * 0.5 * spacing
+        
 //        let comp = MIDISphereComponent(midi: MIDINote(n))
-//        let comp = MIDIParticleComponent(midi: MIDINote(n))
-
         let comp = MIDILightComponent(midi: MIDINote(n))
         comp.node.position = SCNVector3Make(spacing * CGFloat(x) + xOffset, vSpacing * CGFloat(y), 0)
 
@@ -95,7 +94,6 @@ class SquareLattice: Tonnetz {
         let n = (4*x + 3*y) % 12
 
         //        let comp = MIDISphereComponent(midi: MIDINote(n))
-        //        let comp = MIDIParticleComponent(midi: MIDINote(n))
         let light = MIDILightComponent(midi: MIDINote(n))
         light.node.position = SCNVector3Make(spacing * CGFloat(x), spacing * CGFloat(y), 0)
 
